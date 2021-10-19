@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 class RegisterType extends AbstractType
 {
@@ -18,24 +19,48 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class,[
+                'constraints' => new Length([
+                    'min' => 2,
+                    'max' => 30,
+                    'minMessage' => 'Vous devez saisir au moins 2 caractères',
+                    'maxMessage' => 'Vous devez saisir au maximum 30 caractères',
+                ]),
                 'label' => 'Prénom',
                 'attr' => [
                     'placeholder' => 'Merci de saisir votre prénom'
                 ]
             ] )
             ->add('lastname', TextType::class, [
+                'constraints' => new Length([
+                    'min' => 2,
+                    'max' => 30,
+                    'minMessage' => 'Vous devez saisir au moins 2 caractères',
+                    'maxMessage' => 'Vous devez saisir au maximum 30 caractères',
+                ]),
                 'label' => 'Nom',
                 'attr' => [
                     'placeholder' => 'Merci de saisir le Nom '
                 ]
             ])
             ->add('email', EmailType::class, [
+                'constraints' => new Length([
+                    'min' => 2,
+                    'max' => 30,
+                    'minMessage' => 'Vous devez saisir au moins 2 caractères',
+                    'maxMessage' => 'Vous devez saisir au maximum 30 caractères',
+                ]),
                 'label' => 'Votre email',
                 'attr' => [
                     'placeholder' => 'Merci de saisir votre email'
                     ]
             ])
             ->add('password', RepeatedType::class,[
+            'constraints' => new Length([
+                'min' => 4,
+                'max' => 30,
+                'minMessage' => 'Vous devez saisir au moins 4 caractères',
+                'maxMessage' => 'Vous devez saisir au maximum 30 caractères',
+            ]),
             'type'=> PasswordType::class,
             'invalid_message' => ' les mots de passes doivent être identiques',
             'label' => 'Votre mot de passe ',
