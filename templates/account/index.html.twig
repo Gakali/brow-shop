@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Brow-shop:mon compte{% endblock %}
+
+{% block content %}
+    <h1>Mon compte</h1>
+    Bienvenue dans votre espace <span class ='user' >{{(app.user.firstname)}}</span>
+    <hr>
+    <ul>
+        <li><a href="{{path ('account_password')}}">Modifier mon mot de passe</a></li>
+        <li>Ajouter mon/mes adresses</li>
+        <li>Liste de mes commandes </li>
+        
+    </ul>
+{% endblock %}
