@@ -2,6 +2,7 @@
 namespace App\Form;
 
 use App\Classe\Search;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,7 +21,7 @@ class SearchType extends AbstractType
         $builder
             ->add('string', TextType::class,[
 
-                'label' => 'Rechercher',
+                'label' => false,
                 'required' => false,
                 'attr' =>[
                     'placeholder' => 'Saisissez votre recherche ...'
