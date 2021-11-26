@@ -2,9 +2,11 @@
 namespace App\Form;
 
 use App\Classe\Search;
+use App\Entity\Category;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,14 +26,24 @@ class SearchType extends AbstractType
                 'label' => false,
                 'required' => false,
                 'attr' =>[
-                    'placeholder' => 'Saisissez votre recherche ...'
+                    'placeholder' => 'Votre recherche'
                 ]
 
             ])
-            //  ->add('categories', EntityType::class, [
-            //      'label' => false,
-            //      'required' => false,
-            //  ])
+             ->add('categories', EntityType::class, [
+                 'label' => false,
+                 'required' => false,
+                 'class' => Category::class,
+                 'multiple' => true,
+                 'expanded' => true,
+
+             ])
+             ->add('submit', SubmitType::class, [
+                 'label' => 'Filtrer',
+                 'attr' =>[
+                    'class' => 'btn-block btn-info',
+                 ],
+             ])
             ;
     }
 

@@ -14,7 +14,7 @@ Class Search
     public $string ='';
 
     /**
-     * @var Category[]
+     * @var Categories[]
      */
 
     public $categories = [];
