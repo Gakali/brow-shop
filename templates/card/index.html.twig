@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier - Brow shop{% endblock %}
+
+{% block content %}
+    <h1>Mon panier</h1>
+    <hr>
+    
+        {{ dump(card) }}
+    
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Produits</th>
+      <th scope="col">Quantité</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for product in card %}
+    <tr>
+      <th class='product-basket'>{{product.product.name}}</th>
+      <td>{{product.quantity}}</td>
+      <td>{{product.product.Price}}</td>
+      <td>@mdo</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+{% endblock %}
