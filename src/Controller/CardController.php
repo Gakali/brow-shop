@@ -32,7 +32,7 @@ class CardController extends AbstractController
                 'quantity' => $quantity
             ];
         }
-        // dd($cardComplete);
+        
         return $this->render('card/index.html.twig',[
             'card' => $cardComplete,
         ]);
